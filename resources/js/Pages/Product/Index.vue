@@ -1,16 +1,20 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import ProductCard from '@/Components/ProductCard.vue';
 import { Head, Link, usePage } from '@inertiajs/vue3';
-import { inject } from 'vue';
+import { ref, computed, toRef, provide } from 'vue';
 
 
 const page = usePage();
 
-defineProps({
-    products: Array
+const props = defineProps({
+    products: Array,
+    isDarkMode: Boolean
 })
 
-const isDarkMode = inject('isDarkMode');
+const message = ref('This is a shared data.');
+
+provide('data', message)
 </script>
 
 <template>
@@ -19,11 +23,11 @@ const isDarkMode = inject('isDarkMode');
     <AuthenticatedLayout>
         <template #header>
             <div class="flex items-center justify-between">
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">All Products</h2>
+                <h2 class="font-semibold text-xl leading-tight dark:text-white">All Products</h2>
                 <Link 
                 v-show="page.props.auth.user.permissions.includes('create')" 
                 href="/products/create" 
-                class="px-4 py-2 text-sm rounded-md bg-gray-500 text-white"
+                class="px-4 py-2 text-sm rounded-md bg-gray-500 dark:bg-indigo-600 text-white"
                 >Add Product</Link>
             </div>
         </template>
@@ -31,17 +35,7 @@ const isDarkMode = inject('isDarkMode');
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="grid grid-cols-4 gap-4">
-                    <div class="h-auto bg-white" v-for="product in products" :key="product.id">
-                        <div class="h-[150px]">
-                            <img class="w-full object-contain" :src="product.thumbnail" alt="">
-                        </div>
-                        <div class="p-4">
-
-                            <h1 class="text-lg font-semibold text-gray-700">{{ product.name }}</h1>
-                            <span class="px-4 py-1.5 mt-3 text-xs font-semibold bg-gray-50 tracking-wide uppercase">{{ product.category }}</span>
-                            <p class="text-md font-semibold">{{ product.retail_price }}</p>
-                        </div>
-                    </div>
+                    <ProductCard  v-for="product in products" :key="product.id" :product="product" />
                 </div>
             </div>
         </div>

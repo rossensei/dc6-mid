@@ -26,7 +26,7 @@ class ProductSeeder extends Seeder
                 'retail_price' => $product['price'],
                 'qty_stock' => $product['stock'],
                 'category_id' => $cat->id,
-                'thumbnail' => $product['thumbnail']
+                'thumbnail' => fake()->imageUrl(360, 360, 'animals', true)
             ]);
         }
     }

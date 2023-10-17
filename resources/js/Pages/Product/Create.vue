@@ -13,12 +13,12 @@ import { Head, Link } from '@inertiajs/vue3';
     <AuthenticatedLayout>
         <template #header>
             <div class="flex items-center">
-                <Link href="/products" class="inline-flex items-center px-4 py-2 text-sm mr-3">
+                <Link href="/products" class="inline-flex items-center px-4 py-2 text-sm mr-3 dark:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                   </svg>
                   </Link>
-                  <h2 class="font-semibold text-xl text-gray-800 leading-tight">Add a New Product</h2>
+                  <h2 class="font-semibold text-xl text-gray-800 dark:text-white leading-tight">Add a New Product</h2>
             </div>
         </template>
 
@@ -27,14 +27,14 @@ import { Head, Link } from '@inertiajs/vue3';
 
                 
 
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="bg-white dark:bg-[#1f1f1f] overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-4">
-                        <h2 class="font-semibold text-lg text-gray-800 leading-tight">Product Details</h2>
+                        <h2 class="font-semibold text-lg text-gray-800 dark:text-white leading-tight">Product Details</h2>
 
                         <div class="flex items-start mt-5">
                             <div class="max-w-md mr-6">
                                 <div class="mb-4">
-                                    <InputLabel for="product" value="Product name" />
+                                    <InputLabel class="dark:text-white" for="product" value="Product name" />
                                     <TextInput 
                                     type="text"
                                     class="mt-1 block w-full"
@@ -42,7 +42,7 @@ import { Head, Link } from '@inertiajs/vue3';
                                 </div>
     
                                 <div class="mb-4">
-                                    <InputLabel for="brand" value="Brand" />
+                                    <InputLabel class="dark:text-white" for="brand" value="Brand" />
                                     <TextInput 
                                     type="text"
                                     class="mt-1 block w-full"
@@ -50,20 +50,20 @@ import { Head, Link } from '@inertiajs/vue3';
                                 </div>
     
                                 <div class="mb-4">
-                                    <InputLabel for="description" value="Description" />
+                                    <InputLabel class="dark:text-white" for="description" value="Description" />
                                     <textarea id="description" class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"></textarea>
                                 </div>
     
                                 <div class="flex items-center justify-between mb-4">
                                     <div class="mr-3">
-                                        <InputLabel for="retail_price" value="Retail Price" />
+                                        <InputLabel class="dark:text-white" for="retail_price" value="Retail Price" />
                                         <TextInput 
                                         type="number"
                                         class="mt-1 block w-full"
                                         id="retail_price" />
                                     </div>
                                     <div>
-                                        <InputLabel for="qty_stock" value="Quantity Stock" />
+                                        <InputLabel class="dark:text-white" for="qty_stock" value="Quantity Stock" />
                                         <TextInput 
                                         type="number"
                                         class="mt-1 block w-full"
@@ -72,7 +72,7 @@ import { Head, Link } from '@inertiajs/vue3';
                                 </div>
     
                                 <div class="mb-4">
-                                    <InputLabel for="brand" value="Category" />
+                                    <InputLabel class="dark:text-white" for="brand" value="Category" />
                                     <select id="brand" class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
                                         <option value="" selected>-- Select a category --</option>
                                     </select>
@@ -81,7 +81,7 @@ import { Head, Link } from '@inertiajs/vue3';
 
                             <div class="flex-1">
 
-                                <p class="block font-medium text-sm text-gray-700">Add Product Images</p>
+                                <p class="block font-medium text-sm text-gray-700 dark:text-white">Add Product Images</p>
                                 
                                 <div class="flex items-center justify-center max-w-xl">
                                     <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
